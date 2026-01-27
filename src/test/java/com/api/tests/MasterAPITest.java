@@ -3,9 +3,8 @@ package com.api.tests;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
-import com.api.constant.Role;
-import com.api.utils.AuthTokenProvider;
-import com.api.utils.ConfigManager;
+import static com.api.constant.Role.*;
+import com.api.utils.SpecUtil;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 
@@ -16,24 +15,11 @@ public class MasterAPITest {
 	@Test
 	public void masterAPITest() {
 		given()
-		.baseUri(ConfigManager.getProperty("BASE_URI"))
-		.and()
-		.header("Authorization", AuthTokenProvider.getToken(Role.FD))
-		.and()
-		.contentType("") //so we explicitly said it should be empty
-		.log().all()
-		.log().uri()
-		.log().body()
-		.log().headers()
-		.log().method()
+		.spec(SpecUtil.requestSpecWithAuth(FD))
 		.when()
 		.post("master")//it should be get request let developer know //whenever making post-default content-type application/url-formenceded is added by rest assured if not added
 		.then()
-		.log().all()
-		.statusCode(200)
-		.and()
-		.time(Matchers.lessThan(1000L))
-		.and()
+		.spec(SpecUtil.responseSpec_OK())
 		.body("message", Matchers.equalTo("Success"))
 		.and()
 		.body("data", Matchers.notNullValue())
@@ -49,19 +35,13 @@ public class MasterAPITest {
 	}
 	
 	@Test
-	public void invalidTokenMAsterAPITest() {
+	public void invalidTokenMasterAPITest() {
 		given()
-		.baseUri(ConfigManager.getProperty("BASE_URI"))
-		.and()
-		.header("Authorization", "")
-		.and()
-		.contentType("") //explicitly saying it should be empty
-		.log().all()
+		.spec(SpecUtil.requestSpec())
 		.when()
 		.post("master") //it should be get request let developer know //whenever making post-default content-type application/url-formenceded is added by rest assured if not added
 		.then()
-		.log().all()
-		.statusCode(401);
+		.spec(SpecUtil.responseSpec_TEXT(401));
 		
 	}
 }
