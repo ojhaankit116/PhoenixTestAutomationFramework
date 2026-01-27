@@ -2,15 +2,12 @@ package com.api.tests;
 
 import static io.restassured.RestAssured.*;
 
-import static io.restassured.http.ContentType.*;
-
 import static org.hamcrest.Matchers.*;
 
 import org.testng.annotations.Test;
 
 import com.api.pojo.UserCredentials;
-
-import static com.api.utils.ConfigManager.*;
+import com.api.utils.SpecUtil;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 
@@ -22,24 +19,11 @@ public class LoginAPITest {
 		UserCredentials userCredentials = new UserCredentials("iamfd","password");
 		
 		given()
-			.baseUri(getProperty("BASE_URI"))
-		.and()
-			.contentType(JSON)
-		.and()
-			.accept(JSON)
-		.and()
-			.body(userCredentials)
-		.log().uri()
-		.log().body()
-		.log().method()
-		.log().headers()
+			.spec(SpecUtil.requestSpec(userCredentials))
 		.when()
 			.post("login")
 		.then()
-			.log().all()
-		.and()
-			.statusCode(200)
-			.time(lessThan(1500L))
+			.spec(SpecUtil.responseSpec_OK())
 		.and()
 			.body("message",equalTo("Success"))
 		.and()
