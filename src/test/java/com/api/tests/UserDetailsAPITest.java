@@ -10,12 +10,10 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 
 import static io.restassured.RestAssured.*;
 
-import java.io.IOException;
-
 public class UserDetailsAPITest {
 
 	@Test
-	public void userDetailsAPITest() throws IOException {
+	public void userDetailsAPITest()  {
 		
 		given()
 			.spec(SpecUtil.requestSpecWithAuth(FD))

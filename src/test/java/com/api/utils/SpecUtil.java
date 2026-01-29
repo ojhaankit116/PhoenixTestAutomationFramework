@@ -12,7 +12,6 @@ import static com.api.utils.ConfigManager.*;
 import org.hamcrest.Matchers;
 
 import com.api.constant.Role;
-import com.api.pojo.UserCredentials;
 
 public class SpecUtil {
 
