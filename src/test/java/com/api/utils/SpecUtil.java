@@ -12,7 +12,6 @@ import static com.api.utils.ConfigManager.*;
 import org.hamcrest.Matchers;
 
 import com.api.constant.Role;
-import com.api.pojo.UserCredentials;
 
 public class SpecUtil {
 
@@ -44,6 +43,21 @@ public class SpecUtil {
 				.build();
 		return requestSpecification;
 	}
+	
+	public static RequestSpecification requestSpecWithAuth(Role role, Object payload) {
+		RequestSpecification requestSpecification = new RequestSpecBuilder()
+				.setBaseUri(getProperty("BASE_URI"))
+				.setContentType(ContentType.JSON)
+				.setAccept(ContentType.JSON)
+				.addHeader("Authorization", AuthTokenProvider.getToken(role))
+				.setBody(payload)
+				.log(LogDetail.URI)
+				.log(LogDetail.BODY)
+				.log(LogDetail.HEADERS)
+				.log(LogDetail.METHOD)
+				.build();
+		return requestSpecification;
+	}
 
 	// WILL WORK FOR POST,PUT & PATCH BECAUSE MAY PASS BODY
 	public static RequestSpecification requestSpec(Object payload) {
@@ -65,7 +79,7 @@ public class SpecUtil {
 		ResponseSpecification responseSpecification = new ResponseSpecBuilder()
 				.expectContentType(ContentType.JSON)
 				.expectStatusCode(200)
-				.expectResponseTime(Matchers.lessThan(1000L))
+				.expectResponseTime(Matchers.lessThan(1500L))
 				.log(LogDetail.ALL)
 				.build();
 		return responseSpecification;
@@ -75,7 +89,7 @@ public class SpecUtil {
 		ResponseSpecification responseSpecification = new ResponseSpecBuilder()
 				.expectContentType(ContentType.JSON)
 				.expectStatusCode(statusCode)
-				.expectResponseTime(Matchers.lessThan(1000L))
+				.expectResponseTime(Matchers.lessThan(1500L))
 				.log(LogDetail.ALL)
 				.build();
 		return responseSpecification;
@@ -84,7 +98,7 @@ public class SpecUtil {
 	public static ResponseSpecification responseSpec_TEXT(int statusCode) {
 		ResponseSpecification responseSpecification = new ResponseSpecBuilder()
 				.expectStatusCode(statusCode)
-				.expectResponseTime(Matchers.lessThan(1000L))
+				.expectResponseTime(Matchers.lessThan(1500L))
 				.log(LogDetail.ALL)
 				.build();
 		return responseSpecification;

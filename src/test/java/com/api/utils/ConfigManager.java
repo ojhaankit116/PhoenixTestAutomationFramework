@@ -24,13 +24,13 @@ public class ConfigManager {
 		System.out.println("Running Tests on Env " + env);
 		
 		switch (env) {
-		case "dev" -> path = "config/config.dev.properties";
-
-		case "qa" -> path = "config/config.qa.properties";
-
-		case "uat" -> path = "config/config.uat.properties";
-
-		default -> path = "config/config.qa.properties";
+			case "dev" -> path = "config/config.dev.properties";
+	
+			case "qa" -> path = "config/config.qa.properties";
+	
+			case "uat" -> path = "config/config.uat.properties";
+	
+			default -> path = "config/config.qa.properties";
 		}
 
 		InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
@@ -38,6 +38,7 @@ public class ConfigManager {
 		if (input == null) {
 			throw new RuntimeException("Cannot find the File at path " + path);
 		}
+		
 		try {
 			prop.load(input);
 		} catch (FileNotFoundException e) {
