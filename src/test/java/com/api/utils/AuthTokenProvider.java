@@ -36,7 +36,7 @@ public class AuthTokenProvider {
 		.log().ifValidationFails()
 		.statusCode(200)
 		.body("message", equalTo("Success"))
-		.extract().jsonPath().getString("data.token");
+		.extract().jsonPath().getString("data.token");  //will extract token value from response in String
 		
 		return token;
 	}
