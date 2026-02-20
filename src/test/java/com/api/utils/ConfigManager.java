@@ -10,7 +10,7 @@ public class ConfigManager {
 
 	// Using Properties class to read the properties file
 	private static Properties prop = new Properties(); // Object of Properties Class
-	private static String path = "config/config.properties";
+	private static String path = "";
 	private static String env;
 
 	private ConfigManager() {
