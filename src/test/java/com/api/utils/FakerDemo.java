@@ -18,6 +18,8 @@ public class FakerDemo {
 		System.out.println(faker.number().digit());
 		System.out.println(faker.numerify("437#######"));
 		System.out.println(faker.internet().emailAddress());
+		
+		System.out.println(faker.phoneNumber().cellPhone()); // will prefer .numerify
 	}
 
 }
