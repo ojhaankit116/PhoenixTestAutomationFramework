@@ -49,7 +49,7 @@ public class FakerDemo2 {
 		String fakeRemark = faker.lorem().sentence(5);
 		//I want to generate random number between 1 to 27
 		Random random = new Random();
-		int ProblemId = random.nextInt(26)+1;
+		int ProblemId = random.nextInt(27)+1;
 		Problems problems = new Problems(ProblemId, fakeRemark);
 		System.out.println(problems);
 		
