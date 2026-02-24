@@ -47,7 +47,9 @@ public class DataProvidersUtils {
 	
 	@DataProvider(name = "CreateJobAPIFakerDataProvider", parallel = true)
 	public static Iterator<CreateJobPayload> createJobFakeDataProvider() {
-		Iterator<CreateJobPayload> payloadIterator = FakerDataGenerator.generateFakeCreateJobData(5);
+		String fakerCount = System.getProperty("fakerCount", "5");
+		int fakerCountInt =Integer.parseInt(fakerCount);
+		Iterator<CreateJobPayload> payloadIterator = FakerDataGenerator.generateFakeCreateJobData(fakerCountInt);
 		return payloadIterator;
 	}
 }
