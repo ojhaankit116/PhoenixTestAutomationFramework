@@ -51,14 +51,18 @@ public class CreateJobAPITest {
 
 	}
 
-	@Test(description = "Verify if the CreateJobAPI is able to create Inwarranty job", groups = { "api", "smoke",
-			"regression" })
+	@Test(description = "Verify if the CreateJobAPI is able to create Inwarranty job", groups = { "api","smoke","regression" })
 	public void createJobAPITest() {
 
-		given().spec(requestSpecWithAuth(Role.FD, createJobPayload)).log().all().when().post("/job/create").then()
-				.spec(responseSpec_OK())
-				.body(matchesJsonSchemaInClasspath("response-schema/CreateJobAPIResponseSchema.json"))
-				.body("message", equalTo("Job created successfully. ")).body("data.mst_platform_id", equalTo(2))
-				.body("data.job_number", startsWith("JOB_"));
+		given()
+		.spec(requestSpecWithAuth(Role.FD, createJobPayload))
+		.log().all()
+		.when()
+		.post("/job/create")
+		.then()
+		.spec(responseSpec_OK())
+		.body(matchesJsonSchemaInClasspath("response-schema/CreateJobAPIResponseSchema.json"))
+		.body("message", equalTo("Job created successfully. ")).body("data.mst_platform_id", equalTo(2))
+		.body("data.job_number", startsWith("JOB_"));
 	}
 }
