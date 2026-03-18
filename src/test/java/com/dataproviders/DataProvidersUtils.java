@@ -9,6 +9,7 @@ import org.testng.annotations.DataProvider;
 import com.api.request.model.CreateJobPayload;
 import com.api.utils.CSVReaderUtil;
 import com.api.utils.CreateJobBeanMapper;
+import com.api.utils.FakerDataGenerator;
 import com.dataproviders.api.bean.CreateJobBean;
 import com.dataproviders.api.bean.UserBean;
 
@@ -18,9 +19,10 @@ public class DataProvidersUtils {
 	//And return type can take 3 formats
 	//[] - Single Dim Array
 	//[] [] - 2D Array
-	// Iterator
+	// Iterator - ALWAYS PREFER ITERATOR
 	
 	//If I am not giving a name to the dataprovider, then the name of the dataprovider becomes the Methodname  
+	
 	@DataProvider(name = "LoginAPIDataProvider", parallel = true)
 	public static Iterator<UserBean> loginAPIDataProvider() {
 		return CSVReaderUtil.loadCSV("testData/LoginCreds.csv",UserBean.class);
@@ -41,5 +43,13 @@ public class DataProvidersUtils {
 		}
 		
 		return payloadList.iterator();
+	}
+	
+	@DataProvider(name = "CreateJobAPIFakerDataProvider", parallel = true)
+	public static Iterator<CreateJobPayload> createJobFakeDataProvider() {
+		String fakerCount = System.getProperty("fakerCount", "5");
+		int fakerCountInt =Integer.parseInt(fakerCount);
+		Iterator<CreateJobPayload> payloadIterator = FakerDataGenerator.generateFakeCreateJobData(fakerCountInt);
+		return payloadIterator;
 	}
 }
