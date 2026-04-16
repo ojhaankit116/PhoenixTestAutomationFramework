@@ -1,0 +1,137 @@
+[
+
+	{
+	    "mst_service_location_id": 0,
+	    "mst_platform_id": 2,
+	    "mst_warrenty_status_id": 1,
+	    "mst_oem_id": 1,
+	    "customer": {
+	        "first_name": "Jaime",
+	        "last_name": "Klocko",
+	        "mobile_number": "307-875-0000",
+	        "mobile_number_alt": "",
+	        "email_id": "Rosendo58@yahoo.com",
+	        "email_id_alt": ""
+	    },
+	    "customer_address": {
+	        "flat_number": "21",
+	        "apartment_name": "GTA",
+	        "street_name": "BTA",
+	        "landmark": "MTA",
+	        "area": "Mumbai",
+	        "pincode": "989898",
+	        "country": "India",
+	        "state": "Maharashtra"
+	    },
+	    "customer_product": {
+	        "dop": "2025-05-01T04:00:00.000Z",
+	        "serial_number": "97190617447618",
+	        "imei1": "97190617447618",
+	        "imei2": "97190617447618",
+	        "popurl": "2025-05-01T04:00:00.000Z",
+	        "product_id": 1,
+	        "mst_model_id": 1
+	    },
+	    "problems": [
+	        {
+	            "id": 2,
+	            "remark": "Battery drains fast"
+	        },
+			{
+				"id": 1,
+				"remark": "Phone Hanging"
+			}
+	    ]
+	},
+	
+	
+	{
+	    "mst_service_location_id": 0,
+	    "mst_platform_id": 2,
+	    "mst_warrenty_status_id": 1,
+	    "mst_oem_id": 1,
+	    "customer": {
+	        "first_name": "Jaime",
+	        "last_name": "Klocko",
+	        "mobile_number": "307-875-0000",
+	        "mobile_number_alt": "",
+	        "email_id": "Rosendo58@yahoo.com",
+	        "email_id_alt": ""
+	    },
+	    "customer_address": {
+	        "flat_number": "21",
+	        "apartment_name": "GTA",
+	        "street_name": "BTA",
+	        "landmark": "MTA",
+	        "area": "Mumbai",
+	        "pincode": "989898",
+	        "country": "India",
+	        "state": "Maharashtra"
+	    },
+	    "customer_product": {
+	        "dop": "2025-05-01T04:00:00.000Z",
+	        "serial_number": "60190617447618",
+	        "imei1": "60190617447618",
+	        "imei2": "60190617447618",
+	        "popurl": "2025-05-01T04:00:00.000Z",
+	        "product_id": 1,
+	        "mst_model_id": 1
+	    },
+	    "problems": [
+	        {
+	            "id": 1,
+	            "remark": "Phone heating"
+	        }
+	    ]
+	},
+	
+	{
+	    "mst_service_location_id": 0,
+	    "mst_platform_id": 2,
+	    "mst_warrenty_status_id": 1,
+	    "mst_oem_id": 1,
+	    "customer": {
+	        "first_name": "Jaime",
+	        "last_name": "Klocko",
+	        "mobile_number": "307-875-0000",
+	        "mobile_number_alt": "",
+	        "email_id": "Rosendo58@yahoo.com",
+	        "email_id_alt": ""
+	    },
+	    "customer_address": {
+	        "flat_number": "21",
+	        "apartment_name": "GTA",
+	        "street_name": "BTA",
+	        "landmark": "MTA",
+	        "area": "Mumbai",
+	        "pincode": "989898",
+	        "country": "India",
+	        "state": "Maharashtra"
+	    },
+	    "customer_product": {
+	        "dop": "2025-05-01T04:00:00.000Z",
+	        "serial_number": "89190617447618",
+	        "imei1": "89190617447618",
+	        "imei2": "89190617447618",
+	        "popurl": "2025-05-01T04:00:00.000Z",
+	        "product_id": 1,
+	        "mst_model_id": 1
+	    },
+	    "problems": [
+	        {
+	            "id": 2,
+	            "remark": "Battery drains fast"
+	        },
+			{
+				"id": 1,
+				"remark": "Not working"
+			},
+			{
+				"id": 3,
+				"remark": "Slow processing"
+			}
+	    ]
+	}
+
+
+]
